@@ -1,0 +1,60 @@
+<Start>
+    canvas:
+        Color:
+            rgba: 1, 1, 1, 1
+        Ellipse:
+            size: self.size[0] + 40, self.size[0] + 40
+            pos: self.pos[0] - 20, self.pos[1] - 20
+    Label:
+        text: 'Start'
+        font_size: 40
+        center: root.center
+        opacity: 1
+        color: 0.5, 0.5, 1, 1
+
+<Obstacle>
+    canvas:
+        Color:
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<Player>
+    canvas:
+        Color:
+            rgba: 0.2, 0.2, 1, 1
+        Ellipse:
+            size: self.size
+            pos: self.pos
+        Rectangle:
+            size: self.size[0], self.size[1] / 2
+            pos: self.pos
+
+<Frame>
+    canvas:
+        Color:
+            rgba: 0.9, 0.75, 1, 1
+        Rectangle:
+            size: root.size
+            pos: root.pos
+    Start:
+        size_hint: None, None
+        size: 55, 55
+        center: root.center
+        on_release: root.start()
+        id: start
+
+    Player:
+        size_hint: None, None
+        pos: 200, 10
+        id: player
+        size: 45, 60
+    Label:
+        text: ''
+        color: 0, 0, 0, 1
+        font_size: 20
+        size_hint: None, None
+        size: self.texture_size
+        id: score
+        pos: 800, 300
